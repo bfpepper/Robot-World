@@ -1,2 +1,8 @@
-<h1>Hello World</h1>
-<%= binding.pry %>
+<h1>All Your Robots</h1>
+
+<% @robots.each do |robot| %>
+<h3>(<%= robot.name %>)
+    <a href="/robots/<%= robot.name %>"><%= robot.title %></a>
+</h3>
+<a href="/robots/<%= robot.name %>/edit">Edit</a>
+<% end %>

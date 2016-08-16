@@ -8,6 +8,18 @@ class RobotWorld
     @database = database
   end
 
+  def create(robot)
+    database.transaction do
+      database['robots'] ||= []
+      database['total'] ||= 0
+      database['total'] += 1
+      database['robots'] << {"id" => database['total'], "name" =>  robot[:name],
+                             "city" => robot[:city], "state" => robot[:state],
+                             "birthdate" => robot[:birthdate], "date_hired" => robot[:date_hired],
+                             "department" => robot[:department]}
+    end
+  end
+
   def raw_robots
     database.transaction do
       database["robots"] || []
@@ -17,6 +29,5 @@ class RobotWorld
  def all
    raw_robots.map { |data| Robot.new(data) }
  end
-
 
 end
