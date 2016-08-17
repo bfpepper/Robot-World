@@ -30,4 +30,12 @@ class RobotWorld
    raw_robots.map { |data| Robot.new(data) }
  end
 
+ def update(id, robot_data)
+ database.transaction do
+   robot = database["robots"].find { |data| data["id"] == id}
+   robot["title"] = robot_data[:name]
+   robot["description"] = robot_data[:description]
+ end
+end
+
 end

@@ -21,8 +21,13 @@ class RobotWorldApp < Sinatra::Base
   end
 
   post '/robots' do
-   robot_world.create(params[:task])
+   robot_world.create(params[:robot])
    redirect '/robots'
+ end
+
+ put 'robots/:id' do |id|
+   robot_world.update(id.to_i, params[:robot])
+   reditect '/robots/#{id}'
  end
 
   def robot_world
