@@ -26,16 +26,30 @@ class RobotWorld
     end
   end
 
- def all
-   raw_robots.map { |data| Robot.new(data) }
- end
+  def all
+    raw_robots.map { |data| Robot.new(data) }
+  end
+
+  def raw_robot(id)
+    raw_robots.find { |robot| robot['id'] == id}
+  end
+
+  def find(id)
+    Robot.new(raw_robot(id))
+  end
 
  def update(id, robot_data)
- database.transaction do
-   robot = database["robots"].find { |data| data["id"] == id}
-   robot["title"] = robot_data[:name]
-   robot["description"] = robot_data[:description]
+   database.transaction do
+     robot = database["robots"].find { |data| data["id"] == id}
+     robot["title"] = robot_data[:name]
+     robot["description"] = robot_data[:description]
+    end
  end
-end
+
+ def destroy(id)
+   database.transaction do
+     database['robots'].delete.if { |robot| robot['id'] == id}
+   end
+ end
 
 end
