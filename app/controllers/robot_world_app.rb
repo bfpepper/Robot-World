@@ -29,8 +29,8 @@ class RobotWorldApp < Sinatra::Base
     erb :show
   end
 
-  get '/robots/:id/edit' do
-    @robot = robot_world.find(params[:id].to_i)
+  get '/robots/:id/edit' do |id|
+    @robot = robot_world.find(id.to_i)
     erb :edit
   end
 

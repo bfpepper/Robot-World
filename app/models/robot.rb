@@ -2,11 +2,9 @@ require "pry"
 
 
 class Robot
-  attr_reader :name, :city, :state, :birthdate, :date_hired, :department,
-              :id
+  attr_reader :name, :city, :state, :birthdate, :date_hired, :department, :id
 
   def initialize(data)
-    binding.pry
     @id = data["id"]
     @name = data["name"]
     @city = data["city"]
