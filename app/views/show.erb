@@ -1,0 +1,13 @@
+<%= @robot.avatar %>
+
+<h1><%= @robot.name %></h1>
+<h3><%= @robot.city %></h3>
+<h3><%= @robot.state %></h3>
+<h3><%= @robot.birthdate%></h3>
+<h3><%= @robot.date_hired %></h3>
+<h3><%= @robot.department %></h3>
+
+<form action="/robots/<%= @robot.id %>" method="post">
+    <input type="hidden" name="_method" value="delete"/>
+    <input type="submit" value="Delete"/>
+</form>

@@ -48,7 +48,7 @@ class RobotWorld
 
   def destroy(id)
     database.transaction do
-      database['robots'].delete.if { |robot| robot['id'] == id}
+      database['robots'].delete_if { |robot| robot['id'] == id}
     end
   end
 
