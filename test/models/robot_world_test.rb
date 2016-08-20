@@ -1,6 +1,6 @@
 require_relative "../test_helper"
 
-class TaskManagerTest < Minitest::Test
+class RobotWorldTest < Minitest::Test
   include TestHelpers
 
   def current_robot_id
