@@ -1,6 +1,6 @@
 require_relative "../test_helper"
 
-class UserSeesAllTasksTest < FeatureTest
+class UserSeesAllRobotsTest < FeatureTest
 
   def test_user_sees_all_robots
     robot_world.create({name: "Jazzy", city: "Tacoma", state: "Washington", birthdata: "12-13-12", date_hired: "11-11-11", department: "sales"})

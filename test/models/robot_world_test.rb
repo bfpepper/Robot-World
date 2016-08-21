@@ -12,9 +12,10 @@ class RobotWorldTest < Minitest::Test
   end
 
   def test_robot_is_created
-    robot = robot_world.create({:name => "Troy", :city => "Bailey", :state => "CO", :birthdate => "03-14-1987", :date_hired => "3-15-2013", :department => "account managment"})
+    create_robot
+    # robot = robot_world.create({:name => "Troy", :city => "Bailey", :state => "CO", :birthdate => "03-14-1987", :date_hired => "3-15-2013", :department => "account managment"})
 
-    robot_world.find(current_robot_id)
+    robot = robot_world.find(current_robot_id)
 
     assert_equal "Troy", robot.name
     assert_equal "Bailey", robot.city
@@ -38,7 +39,8 @@ class RobotWorldTest < Minitest::Test
   end
 
   def test_it_deletes_a_robt
-    create_robot
+    # create_robot
+    robot_world.create({:name => "Troy", :city => "Bailey", :state => "CO", :birthdate => "03-14-1987", :date_hired => "3-15-2013", :department => "account managment"})
 
     assert_equal 1, robot_world.all.count
 
@@ -51,7 +53,7 @@ class RobotWorldTest < Minitest::Test
 
     params = { robot: { :name => "Denton", :city => "Chicago", :state => "CO", :birthdate => "03-14-1987", :date_hired => "3-15-2013", :department => "account managment"}}
 
-    robot_world.update(current_robot_id, params[:task])
+    robot_world.update(current_robot_id, params[:robot])
 
     robot = robot_world.find(current_robot_id)
 

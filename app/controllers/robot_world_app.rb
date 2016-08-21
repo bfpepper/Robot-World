@@ -36,7 +36,7 @@ class RobotWorldApp < Sinatra::Base
 
  put '/robots/:id' do |id|
    robot_world.update(id.to_i, params[:robot])
-   redirect '/robots/#{id}'
+   redirect "/robots/#{id}"
  end
 
  delete '/robots/:id' do |id|
@@ -48,7 +48,7 @@ class RobotWorldApp < Sinatra::Base
     if ENV['RACK_ENV'] == 'test'
       database = SQLite3::Database.new("db/robot_world_test.db")
     else
-      database = SQLite3::Database.new("robot_world_development.db")
+      database = SQLite3::Database.new("db/robot_world_development.db")
     end
     database.results_as_hash = true
     RobotWorld.new(database)
