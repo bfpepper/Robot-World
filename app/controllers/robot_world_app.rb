@@ -1,4 +1,4 @@
-require 'models/robot_world'
+require_relative '../models/robot_world'
 require "pry"
 
 class RobotWorldApp < Sinatra::Base

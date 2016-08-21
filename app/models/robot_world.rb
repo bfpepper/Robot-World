@@ -9,7 +9,7 @@ class RobotWorld
   end
 
   def create(robot)
-    database.execute("INSERT INTO tasks (name, city, state, birthdate, date_hired, department)
+    database.execute("INSERT INTO robots (name, city, state, birthdate, date_hired, department)
                       VALUES ('#{robot[:name]}', '#{robot[:city]}', '#{robot[:state]}', '#{robot[:birthdate]}',
                       '#{robot[:date_hired]}', '#{robot[:department]}');")
   end
