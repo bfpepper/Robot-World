@@ -13,8 +13,6 @@ class RobotWorldTest < Minitest::Test
 
   def test_robot_is_created
     create_robot
-    # robot = robot_world.create({:name => "Troy", :city => "Bailey", :state => "CO", :birthdate => "03-14-1987", :date_hired => "3-15-2013", :department => "account managment"})
-
     robot = robot_world.find(current_robot_id)
 
     assert_equal "Troy", robot.name
@@ -39,7 +37,6 @@ class RobotWorldTest < Minitest::Test
   end
 
   def test_it_deletes_a_robt
-    # create_robot
     robot_world.create({:name => "Troy", :city => "Bailey", :state => "CO", :birthdate => "03-14-1987", :date_hired => "3-15-2013", :department => "account managment"})
 
     assert_equal 1, robot_world.all.count

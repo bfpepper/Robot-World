@@ -1,27 +1,14 @@
-<html>
+<h1>All Your Robots</h1>
 
-<head>
-  <h1>All Your Robots</h1>
-  <link href="/app/public/css/bootstrap.css" rel="stylesheet">
-</head>
+<% @robots.each do |robot| %>
 
-<body>
+<a href="/robots/<%= robot.id %>">
+    <h2><%= robot.name %></a>
+</h2>
+<%= robot.avatar %>
+<h4><%= robot.city %>,
+    <%= robot.state %></h4>
+<a href="/robots/<%= robot.id %>/edit">Edit</a>
+<% end %>
 
-  <div class="container">
-    <% @robots.each do |robot| %>
-
-    <a href="/robots/<%= robot.id %>"><h2><%= robot.name %></a>
-    </h2>
-    <%= robot.avatar %>
-    <h4><%= robot.city %>,
-      <%= robot.state %></h4>
-      <!-- <h4><%= robot.birthdate %></h4>
-      <h4><%= robot.date_hired %></h4>
-      <h4><%= robot.department %></h4> -->
-      <a href="/robots/<%= robot.id %>/edit">Edit</a>
-      <% end %>
-    </div>
-
-  </body>
-
-  </html>
+<a href="/">Home</a>
